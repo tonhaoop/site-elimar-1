@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Elimar Junior | Oftalmologista</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#005b96',
+                        'brand-dark': '#03396c',
+                        'brand-light': '#356b86',
+                        'bg-soft': '#f0f4f8',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'up': '0 -4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .simulator-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+            border-radius: 1.5rem;
+            background-color: #e5e7eb;
+            isolation: isolate;
+        }
+        
+        .sim-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .handle-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: white;
+            z-index: 20;
+            left: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        :focus-visible {
+            outline: 3px solid #005b96;
+            outline-offset: 3px;
+        }
+
+        input[type="range"] {
+            min-height: 48px;
+            accent-color: #005b96;
+            cursor: pointer;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Animação suave de troca de aba */
+        .fade-enter {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-bg-soft font-sans text-gray-700 pb-24 overflow-x-hidden">
+
+    <!-- Header Fixo Topo -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-40 h-16 flex items-center px-4 justify-between transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-blue overflow-hidden border-2 border-brand-light">
+                <img src="logo.jpg" alt="Logo do Dr. Elimar Junior"
+                     onerror="this.src='https://placehold.co/100x100/005b96/white?text=L'" 
+                     class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="font-heading font-bold text-gray-900 text-sm leading-tight">Dr. Elimar Junior</h1>
+                <p class="text-[10px] text-brand-light font-bold tracking-wider">OFTALMOLOGISTA</p>
+            </div>
+        </div>
+        
+        <!-- Ícones de Contato (Instagram e WhatsApp) -->
+        <div class="flex items-center gap-3">
+            <a href="https://www.instagram.com/drelimar.oftalmologia/" target="_blank" aria-label="Acessar Instagram" class="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-3 rounded-full shadow-lg active:scale-95 transition">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="https://wa.me/5521987967286" target="_blank" aria-label="Agendar pelo WhatsApp" class="bg-green-500 text-white p-3 rounded-full shadow-lg active:scale-95 transition">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="pt-20 px-4 max-w-lg mx-auto md:max-w-2xl min-h-screen">
+        
+        <!-- ================= ABA INÍCIO (HOME) ================= -->
+        <div id="view-home" class="tab-content fade-enter">
+            <!-- Hero Mobile -->
+            <section class="text-center mb-8">
+                <div class="relative w-40 h-40 mx-auto mb-4">
+                    <div class="absolute inset-0 bg-brand-blue rounded-full opacity-10 animate-pulse"></div>
+                    <img src="doutor.jpg" alt="Dr. Elimar Junior, oftalmologista"
+                         onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" 
+                         class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl relative z-10">
+                    <div class="absolute bottom-2 right-2 bg-brand-blue text-white text-xs px-2 py-1 rounded-full z-20 font-bold border-2 border-white shadow-md">
+                        CBO
+                    </div>
+                </div>
+                <h2 class="text-2xl font-heading font-bold text-gray-800 leading-tight mb-2">
+                    Sua visão merece <br> <span class="text-brand-blue">cuidado especializado</span>
+                </h2>
+                <p class="text-base text-gray-600 mb-6 px-4 leading-relaxed">
+                    Especialista em Catarata e saúde ocular completa em Piabetá.
+                </p>
+                
+                <!-- Botões de Ação Rápida Internos -->
+                <div class="space-y-3">
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="toggleModal()" class="bg-brand-blue text-white py-3 px-4 rounded-xl font-bold shadow-lg shadow-blue-900/20 active:scale-95 transition flex items-center justify-center gap-2">
+                            <i data-lucide="calendar"></i> Agendar
+                        </button>
+                        <!-- Este botão muda para a aba local -->
+                        <button onclick="switchTab('location')" class="bg-white text-brand-dark py-3 px-4 rounded-xl font-bold shadow-md border border-gray-100 active:scale-95 transition flex items-center justify-center gap-2">
+                            <i data-lucide="map-pin"></i> Ver clínica
+                        </button>
+                    </div>
+                    
+                    <!-- Botão Instagram Destaque -->
+                    <a href="https://www.instagram.com/drelimar.oftalmologia/" target="_blank" class="w-full bg-white text-pink-600 py-3 px-4 rounded-xl font-bold shadow-md border border-pink-100 active:scale-95 transition flex items-center justify-center gap-2">
+                        <i data-lucide="instagram" class="w-5 h-5"></i> Siga no Instagram
+                    </a>
+                </div>
+            </section>
+
+            <!-- Qualificações -->
+            <section class="mb-8">
+                <div class="flex items-center justify-between mb-3 px-1">
+                    <h3 class="font-heading font-bold text-gray-800">Minha Formação</h3>
+                </div>
+                
+                <div id="qualifications-list" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                        <div class="bg-blue-50 p-3 rounded-full text-brand-blue shrink-0">
+                            <i data-lucide="graduation-cap" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">UERJ</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">Especialização em Oftalmologia na Universidade do Estado do RJ</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                        <div class="bg-blue-50 p-3 rounded-full text-brand-blue shrink-0">
+                            <i data-lucide="book-open" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">PUC-RJ</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">Pós-Graduação Oftalmológica</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                        <div class="bg-blue-50 p-3 rounded-full text-brand-blue shrink-0">
+                            <i data-lucide="award" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">Título CBO</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">Especialista pelo Conselho Brasileiro de Oftalmologia</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card Completo: Cirurgia de Catarata + Simulador -->
+            <section class="mb-8 bg-white rounded-3xl shadow-md overflow-hidden border border-gray-100">
+                <div class="p-6 pb-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-blue-100 p-2.5 rounded-xl text-brand-blue">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-gray-900 text-lg leading-tight">Cirurgia de Catarata</h3>
+                            <p class="text-xs text-brand-light font-bold uppercase tracking-wide">Especialidade Dr. Elimar</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-700 text-base leading-relaxed mb-4">
+                        A catarata deixa a visão embaçada, como se olhasse por um vidro sujo. O <strong>Dr. Elimar Junior</strong> realiza a cirurgia moderna para substituir o cristalino opaco por uma lente nova, devolvendo a nitidez e as cores vivas.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg border border-green-100">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                            <span class="text-xs font-bold text-gray-700">Visão Nítida</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg border border-green-100">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                            <span class="text-xs font-bold text-gray-700">Recuperação Rápida</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-100 rounded-2xl p-1">
+                        <div class="text-center py-2">
+                            <p class="text-sm text-gray-700 font-bold mb-2">Compare a visão</p>
+                        </div>
+
+                        <div class="simulator-container rounded-xl" id="simulator" style="height: 250px;">
+                            <img src="catarata.jpg" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+                                 class="sim-layer" style="filter: blur(6px) grayscale(60%); z-index: 1;">
+                            
+                            <img src="catarata.jpg" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+                                 id="sim-overlay-img" class="sim-layer" style="z-index: 2; clip-path: inset(0 50% 0 0);">
+                            
+                            <div class="handle-line" id="sim-handle" style="left: 50%;" aria-hidden="true"></div>
+                            
+                            <!-- Etiquetas Integradas -->
+                            <div class="absolute bottom-3 left-3 bg-brand-blue/90 backdrop-blur-sm text-white text-sm font-bold px-3 py-2 rounded-lg shadow-lg z-30 flex items-center gap-1 border border-white/20">
+                                <i data-lucide="sparkles" class="w-3 h-3"></i> Pós-Cirurgia
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-sm font-bold px-3 py-2 rounded-lg shadow-lg z-30 border border-white/10">
+                                Com Catarata
+                            </div>
+                        </div>
+                        <label for="vision-comparison" class="block mt-3 px-2 text-base font-bold text-gray-800">
+                            Use o controle para comparar as imagens
+                        </label>
+                        <input id="vision-comparison" type="range" min="0" max="100" value="50"
+                               aria-label="Comparação entre visão com catarata e após cirurgia"
+                               aria-valuetext="Comparação igual entre as duas imagens"
+                               class="w-full">
+                        <div class="flex justify-between px-2 pb-2 text-sm font-semibold text-gray-700">
+                            <span>Com catarata</span>
+                            <span>Após cirurgia</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRM no final da aba Início -->
+            <div class="text-center pb-8 text-sm text-gray-600 font-medium">
+                <p>Dr. Elimar Junior</p>
+                <p>CRM-RJ: 52.80812-1</p>
+            </div>
+        </div>
+
+        <!-- ================= ABA LOCALIZAÇÃO (LOCATION) ================= -->
+        <div id="view-location" class="tab-content hidden fade-enter">
+            <h2 class="text-2xl font-heading font-bold text-gray-800 mb-6 mt-2">Nossa Localização</h2>
+            
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 mb-6">
+                <div class="h-64 bg-gray-200 relative">
+                     <iframe 
+                        src="https://maps.google.com/maps?width=100%25&height=600&hl=pt-BR&q=R.+Artur+Rodrigues+Loivos,+285+-+Piabet%C3%A1,+Mag%C3%A9+-+RJ,+25931-834&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="absolute inset-0 grayscale opacity-100">
+                    </iframe>
+                </div>
+                <div class="p-6">
+                    <div class="inline-block bg-blue-100 text-brand-blue p-3 rounded-xl mb-4">
+                        <i data-lucide="map-pin" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-gray-900 text-xl">Clínica Santíssima Trindade</h3>
+                    <p class="text-gray-700 mt-2 text-base leading-relaxed">R. Artur Rodrigues Loivos, 285<br>Piabetá, Magé - RJ<br>CEP: 25931-834</p>
+                    
+                    <div class="mt-6 space-y-3">
+                        <a href="https://www.google.com/maps/search/?api=1&query=R.+Artur+Rodrigues+Loivos,+285+-+Piabetá,+Magé+-+RJ,+25931-834" target="_blank" class="w-full min-h-12 flex items-center justify-center gap-2 bg-brand-blue text-white py-4 rounded-xl font-bold transition active:scale-95 shadow-lg shadow-blue-900/20">
+                            <i data-lucide="navigation" class="w-5 h-5"></i> Abrir no GPS
+                        </a>
+                        <button onclick="switchTab('home')" class="w-full min-h-12 py-3 text-gray-700 font-semibold text-base">
+                            Voltar ao Início
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info Adicional -->
+            <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100 mb-6">
+                <h4 class="font-bold text-brand-dark flex items-center gap-2 mb-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i> Horário de Atendimento
+                </h4>
+                <p class="text-base text-gray-700">Segunda a Sexta: 08:00 às 18:00</p>
+            </div>
+
+            <!-- CRM no final da aba Localização -->
+            <div class="text-center pb-8 text-sm text-gray-600 font-medium">
+                <p>Responsável Técnico: Dr. Elimar Junior</p>
+                <p>CRM-RJ: 52.80812-1</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Fixo Embaixo) -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 shadow-up pb-safe z-50">
+        <div class="flex justify-around items-center h-16">
+            <!-- Botão Início (Aba) -->
+            <button onclick="switchTab('home')" id="nav-btn-home" class="flex flex-col items-center justify-center w-full h-full text-brand-blue transition-colors">
+                <i data-lucide="home" class="w-5 h-5 mb-1"></i>
+                <span class="text-xs font-semibold">Início</span>
+            </button>
+            
+            <!-- Botão Local (Aba) -->
+            <button onclick="switchTab('location')" id="nav-btn-location" class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand-blue transition-colors">
+                <i data-lucide="map" class="w-5 h-5 mb-1"></i>
+                <span class="text-xs font-semibold">Clínica</span>
+            </button>
+            
+            <!-- Botão Central Destaque (Modal) -->
+            <div class="relative -top-3 flex flex-col items-center">
+                <button onclick="toggleModal()" aria-label="Agendar consulta" class="w-14 h-14 bg-brand-blue rounded-full text-white shadow-lg flex items-center justify-center border-4 border-bg-soft transform transition active:scale-90">
+                    <i data-lucide="calendar-plus" class="w-6 h-6"></i>
+                </button>
+                <span class="text-xs font-semibold text-gray-700">Agendar</span>
+            </div>
+
+            <!-- Botão Zap (Link Externo) -->
+            <a href="https://wa.me/5521987967286" target="_blank" class="flex flex-col items-center justify-center w-full h-full text-gray-600 hover:text-green-700 transition-colors">
+                <i data-lucide="message-circle" class="w-5 h-5 mb-1"></i>
+                <span class="text-xs font-semibold">WhatsApp</span>
+            </a>
+            
+            <!-- Botão Ligar (Link Externo) -->
+            <a href="tel:+5521987967286" class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand-blue transition-colors">
+                <i data-lucide="phone" class="w-5 h-5 mb-1"></i>
+                <span class="text-xs font-semibold">Ligar</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Modal de Agendamento (Estilo Bottom Sheet) -->
+    <div id="bookingModal" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleModal()"></div>
+        <div class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl transform transition-transform duration-300 ease-out translate-y-full" id="modalPanel">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-4 mb-6"></div>
+            <div class="px-6 pb-8">
+                <h3 class="text-xl font-heading font-bold text-gray-900 mb-2">Agendar Consulta</h3>
+                <p class="text-sm text-gray-500 mb-6">Fale diretamente com a recepção da Clínica Santíssima Trindade.</p>
+                <div class="space-y-3">
+                    <a href="https://wa.me/5521987967286" class="flex items-center gap-4 w-full bg-green-500 active:bg-green-600 text-white p-4 rounded-2xl shadow-md transition">
+                        <div class="bg-white/20 p-2 rounded-full">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold text-base">Chamar no WhatsApp</p>
+                            <p class="text-sm opacity-90">Resposta rápida</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="ml-auto opacity-50"></i>
+                    </a>
+                    <a href="tel:+5521987967286" class="flex items-center gap-4 w-full bg-gray-100 active:bg-gray-200 text-gray-800 p-4 rounded-2xl border border-gray-200 transition">
+                        <div class="bg-white p-2 rounded-full text-gray-600 shadow-sm">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold text-base">Ligar para a clínica</p>
+                            <p class="text-sm text-gray-600">(21) 98796-7286</p>
+                        </div>
+                    </a>
+                </div>
+                <button onclick="toggleModal()" class="w-full min-h-12 mt-6 py-3 text-gray-700 font-semibold text-base">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        //(TABS)
+        function switchTab(tabName) {
+            // Esconde todas as abas
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Remove destaque de todos os botões da nav
+            document.getElementById('nav-btn-home').classList.replace('text-brand-blue', 'text-gray-400');
+            document.getElementById('nav-btn-location').classList.replace('text-brand-blue', 'text-gray-400');
+
+            // Mostra a aba certa
+            const selectedTab = document.getElementById('view-' + tabName);
+            selectedTab.classList.remove('hidden');
+            
+            // Rola para o topo da página ao trocar de aba
+            window.scrollTo({top: 0, behavior: 'instant'});
+
+            // Destaca o botão certo na nav
+            const selectedBtn = document.getElementById('nav-btn-' + tabName);
+            selectedBtn.classList.replace('text-gray-400', 'text-brand-blue');
+        }
+
+        // Modal Lógica
+        const modal = document.getElementById('bookingModal');
+        const panel = document.getElementById('modalPanel');
+
+        function toggleModal() {
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => { panel.classList.remove('translate-y-full'); }, 10);
+            } else {
+                panel.classList.add('translate-y-full');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+
+
+
+            }
+
+
+        }
+        const overlayImg = document.getElementById('sim-overlay-img');
+        const handle = document.getElementById('sim-handle');
+        const comparisonSlider = document.getElementById('vision-comparison');
+
+        function updateSlider() {
+            const percent = Number(comparisonSlider.value);
+            overlayImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+            handle.style.left = `${percent}%`;
+            const description = percent === 0
+                ? 'Visão com catarata'
+                : percent === 100
+                    ? 'Visão após cirurgia'
+                    : `Comparação ajustada em ${percent}%`;
+            comparisonSlider.setAttribute('aria-valuetext', description);
+        }
+
+        comparisonSlider.addEventListener('input', updateSlider);
+
+    </script>
+
+</body>
+
+</html>
