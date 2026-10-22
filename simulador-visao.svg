@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26b9e8"/>
+      <stop offset="1" stop-color="#b9efff"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#74dc70"/>
+      <stop offset="1" stop-color="#16a76b"/>
+    </linearGradient>
+    <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#54cf58"/>
+      <stop offset="1" stop-color="#138953"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4bd7e5"/>
+      <stop offset="1" stop-color="#118dbd"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8598cc"/>
+      <stop offset="1" stop-color="#586d9c"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="520" fill="url(#sky)"/>
+  <circle cx="778" cy="116" r="56" fill="#ffe36e"/>
+  <circle cx="778" cy="116" r="72" fill="#ffe36e" opacity=".18"/>
+  <g fill="#fff" opacity=".92">
+    <ellipse cx="194" cy="119" rx="76" ry="24"/>
+    <circle cx="149" cy="104" r="28"/>
+    <circle cx="190" cy="91" r="36"/>
+    <circle cx="226" cy="106" r="26"/>
+    <ellipse cx="532" cy="161" rx="59" ry="18"/>
+    <circle cx="500" cy="150" r="21"/>
+    <circle cx="531" cy="141" r="27"/>
+    <circle cx="558" cy="152" r="20"/>
+  </g>
+  <path d="M0 332 161 171l103 107 151-178 172 185 118-137 255 187v185H0Z" fill="url(#mountain)"/>
+  <path d="m161 171 49 51-41-10-32 35-35-11Zm254-71 63 104-56-28-39 38-34-23Zm290 48 41 62-39-16-25 29-28-19Z" fill="#f4fbff" opacity=".94"/>
+  <path d="M0 335q155-92 318-15t306 5q169-95 336-12v207H0Z" fill="#b2dd79"/>
+  <path d="M0 373q180-88 371-16t298-9q165-89 291-11v183H0Z" fill="url(#hill)"/>
+  <path d="M337 375q111-45 231 0t215-4v149H337Z" fill="url(#water)"/>
+  <path d="M355 399q91-22 167 5m-148 26q102-16 194 8m-172 26q112-16 205 4" fill="none" stroke="#d5ffff" stroke-linecap="round" stroke-width="7" opacity=".65"/>
+  <path d="M0 448q169-63 342-16t302 1q165-56 316 4v83H0Z" fill="url(#meadow)"/>
+  <g stroke="#247d46" stroke-width="6" stroke-linecap="round">
+    <path d="M83 520q-4-93 18-165m51 165q-7-75 8-128m705 128q4-97-13-163m-55 163q7-74-8-126"/>
+  </g>
+  <g>
+    <g transform="translate(116 342)">
+      <path d="M0 7v75" stroke="#23834c" stroke-width="5"/>
+      <circle cy="0" r="11" fill="#ffcb44"/><circle cx="-12" r="10" fill="#ff6c91"/>
+      <circle cx="12" r="10" fill="#ff6c91"/><circle cy="-12" r="10" fill="#ff8aae"/>
+      <circle cy="12" r="10" fill="#ff6c91"/>
+    </g>
+    <g transform="translate(191 405) scale(.82)">
+      <path d="M0 7v75" stroke="#23834c" stroke-width="5"/>
+      <circle cy="0" r="11" fill="#ffcb44"/><circle cx="-12" r="10" fill="#a982ed"/>
+      <circle cx="12" r="10" fill="#a982ed"/><circle cy="-12" r="10" fill="#c4a4ff"/>
+      <circle cy="12" r="10" fill="#a982ed"/>
+    </g>
+    <g transform="translate(273 444) scale(1.08)">
+      <path d="M0 7v75" stroke="#23834c" stroke-width="5"/>
+      <circle cy="0" r="11" fill="#ffcb44"/><circle cx="-12" r="10" fill="#ff8a42"/>
+      <circle cx="12" r="10" fill="#ff8a42"/><circle cy="-12" r="10" fill="#ffb04b"/>
+      <circle cy="12" r="10" fill="#ff8a42"/>
+    </g>
+    <g transform="translate(770 407) scale(.9)">
+      <path d="M0 7v75" stroke="#23834c" stroke-width="5"/>
+      <circle cy="0" r="11" fill="#ffcb44"/><circle cx="-12" r="10" fill="#ff6c91"/>
+      <circle cx="12" r="10" fill="#ff6c91"/><circle cy="-12" r="10" fill="#ff8aae"/>
+      <circle cy="12" r="10" fill="#ff6c91"/>
+    </g>
+    <g transform="translate(862 353)">
+      <path d="M0 7v75" stroke="#23834c" stroke-width="5"/>
+      <circle cy="0" r="11" fill="#ffcb44"/><circle cx="-12" r="10" fill="#a982ed"/>
+      <circle cx="12" r="10" fill="#a982ed"/><circle cy="-12" r="10" fill="#c4a4ff"/>
+      <circle cy="12" r="10" fill="#a982ed"/>
+    </g>
+  </g>
+  <g fill="#fff3a5" opacity=".9">
+    <circle cx="43" cy="411" r="5"/><circle cx="233" cy="370" r="5"/>
+    <circle cx="315" cy="479" r="5"/><circle cx="669" cy="385" r="5"/>
+    <circle cx="923" cy="444" r="5"/><circle cx="723" cy="488" r="5"/>
+  </g>
+</svg>
